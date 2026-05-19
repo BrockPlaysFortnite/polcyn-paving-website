@@ -26,7 +26,7 @@ export const services: Service[] = [
     slug: "sealcoating",
     shortDescription: "Protective sealcoat application to shield asphalt from UV, water, and oxidation.",
     longDescription: "Sealcoating is the single best thing you can do to extend the life of your asphalt. We apply commercial-grade sealer that protects against sun, rain, oil, and chemicals.",
-    icon: "drop",
+    icon: "bucket",
   },
   {
     name: "Line Striping",
