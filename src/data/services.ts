@@ -26,28 +26,28 @@ export const services: Service[] = [
     slug: "sealcoating",
     shortDescription: "Protective sealcoat application to shield asphalt from UV, water, and oxidation.",
     longDescription: "Sealcoating is the single best thing you can do to extend the life of your asphalt. We apply commercial-grade sealer that protects against sun, rain, oil, and chemicals.",
-    icon: "shield",
+    icon: "drop",
   },
   {
     name: "Line Striping",
     slug: "striping",
     shortDescription: "Crisp parking lot striping, lane markings, fire lanes, and stencils.",
     longDescription: "Sharp, durable line striping for parking lots, fire lanes, loading zones, and custom stencil work. Fresh paint instantly elevates the look of any property.",
-    icon: "lines",
+    icon: "roller",
   },
   {
     name: "ADA Upgrades",
     slug: "ada",
     shortDescription: "Handicap stalls, ramps, signage, and full ADA compliance work.",
     longDescription: "We bring lots into ADA compliance — accessible parking stalls, access aisles, ramps, truncated domes, and required signage. Stay compliant and avoid costly violations.",
-    icon: "accessible",
+    icon: "wheelchair",
   },
   {
     name: "Signs, Posts & Bollards",
     slug: "signs",
     shortDescription: "Installation and removal of parking signs, posts, and protective bollards.",
     longDescription: "Parking signs, stop signs, handicap signs, sign posts, and steel bollards — installed, replaced, or removed. We handle the concrete, the hardware, and the cleanup.",
-    icon: "signs",
+    icon: "sign",
   },
 ];
 
