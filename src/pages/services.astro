@@ -36,17 +36,16 @@ import { icons } from '../lib/icons';
   <!-- Service sections -->
   <div class="py-16 md:py-20">
     <div class="max-w-4xl mx-auto px-4 space-y-16 md:space-y-20">
-      {services.map((service, idx) => (
+      {services.map(service => (
         <section id={service.slug} class="scroll-mt-24">
-          <div class="flex items-start gap-5 mb-5">
+          <div class="flex items-center gap-5 mb-5">
             <div class="w-14 h-14 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
               <svg class="w-9 h-9 text-white" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                 <Fragment set:html={icons[service.icon] || icons.drop} />
               </svg>
             </div>
             <div class="flex-1">
-              <span class="text-primary text-sm font-bold uppercase tracking-wider">Service {String(idx + 1).padStart(2, '0')}</span>
-              <h2 class="text-3xl md:text-4xl font-black text-black mt-1">{service.name}</h2>
+              <h2 class="text-3xl md:text-4xl font-black text-black">{service.name}</h2>
             </div>
           </div>
           <p class="text-slate text-lg leading-relaxed mb-4 pl-0 md:pl-[4.75rem]">
