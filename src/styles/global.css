@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Polcyn palette — construction orange + asphalt black.
+     Distinct hex codes from the SealcoatSAS reference site's yellow. */
+  --color-primary: #EA580C;       /* orange-600 — primary CTAs, accent bars */
+  --color-primary-dark: #C2410C;  /* orange-700 — hover states */
+  --color-primary-light: #F97316; /* orange-500 — lighter accents */
+
+  --color-black: #1A1A1A;
+  --color-charcoal: #2D2D2D;
+  --color-slate: #57534E;         /* warm stone-600, pairs with orange */
+  --color-smoke: #F5F1EC;         /* warm off-white */
+
+  /* Gray palette for Tailwind v4 */
+  --color-gray-50: #FAFAF9;
+  --color-gray-100: #F5F5F4;
+  --color-gray-200: #E7E5E4;
+  --color-gray-300: #D6D3D1;
+  --color-gray-400: #A8A29E;
+  --color-gray-500: #78716C;
+  --color-gray-600: #57534E;
+  --color-gray-700: #44403C;
+  --color-gray-800: #292524;
+  --color-gray-900: #1C1917;
+
+  --color-red-500: #EF4444;
+  --color-green-500: #22C55E;
+  --color-green-600: #16A34A;
+
+  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-black);
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  /* Scroll offset for anchor links so content doesn't hide behind the sticky header */
+  :target {
+    scroll-margin-top: 6rem;
+  }
+}

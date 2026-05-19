@@ -1,0 +1,111 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import PreviewNotice from '../components/PreviewNotice.astro';
+import { companyInfo } from '../data/services';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalURL?: string;
+}
+
+const { title, description, canonicalURL } = Astro.props;
+const siteURL = Astro.url.origin || 'https://polcynpaving.com';
+const pageURL = canonicalURL || Astro.url.href;
+
+// TODO: replace placeholder GA4 measurement ID once the friend creates one.
+const GA4_ID: string | null = null;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {GA4_ID && (
+    <>
+      <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+      <script is:inline define:vars={{ GA4_ID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GA4_ID);
+      </script>
+    </>
+  )}
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={pageURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={pageURL} />
+  <meta property="og:image" content={`${siteURL}/images/logo-og.png`} />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+
+  <!-- TODO: replace with Polcyn favicon once supplied -->
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Local Business Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": companyInfo.name,
+    "description": "Full-service asphalt paving and maintenance contractor serving San Bernardino, the High Desert, and the Inland Empire. Paving, repair, sealcoating, striping, ADA upgrades, and signs.",
+    "url": siteURL,
+    "telephone": `+1${companyInfo.phoneRaw}`,
+    "email": companyInfo.email,
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "San Bernardino" },
+      { "@type": "City", "name": "Victorville" },
+      { "@type": "City", "name": "Apple Valley" },
+      { "@type": "City", "name": "Hesperia" },
+      { "@type": "City", "name": "Ontario" },
+      { "@type": "City", "name": "Riverside" }
+    ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "07:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday", "Sunday"],
+        "opens": "07:00",
+        "closes": "12:00"
+      }
+    ]
+  })} />
+  <slot name="head" />
+</head>
+<body class="min-h-screen flex flex-col">
+  <PreviewNotice />
+  <Header />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

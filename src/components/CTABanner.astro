@@ -1,0 +1,40 @@
+---
+import { companyInfo } from '../data/services';
+import { withBase } from '../lib/links';
+
+interface Props {
+  headline?: string;
+  subtext?: string;
+}
+
+const {
+  headline = "Ready to Get Started?",
+  subtext = "Free consultations and estimates — call, text, or send us a message and we'll get right back to you.",
+} = Astro.props;
+---
+
+<section class="relative bg-black py-16 overflow-hidden">
+  <!-- Orange accent line -->
+  <div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+  <!-- Subtle diagonal pattern -->
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 14px, #fff 14px, #fff 15px);"></div>
+
+  <div class="relative max-w-4xl mx-auto px-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-black text-white mb-4">{headline}</h2>
+    <p class="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">{subtext}</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href={`tel:${companyInfo.phoneRaw}`}
+        class="bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded-md text-lg transition-colors"
+      >
+        Call {companyInfo.phone}
+      </a>
+      <a
+        href={withBase('/contact')}
+        class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold px-8 py-4 rounded-md text-lg transition-colors"
+      >
+        Send a Message
+      </a>
+    </div>
+  </div>
+</section>

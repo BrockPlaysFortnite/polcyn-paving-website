@@ -1,0 +1,39 @@
+---
+// Temporary preview banner shown above every page while the site is being built.
+// Remove this component (and its imports in BaseLayout.astro) before launch.
+const needed = [
+  "Company logo (PNG/SVG if you have it — square works best)",
+  "A hero photo (paving in progress, finished lot, equipment, etc.)",
+  "3–5 portfolio photos (or before/after pairs) we can show off",
+  "Years in business + CSLB license number",
+  "A short \"about\" blurb / origin story (1–2 sentences is fine)",
+  "Social media handles, if you have any (Instagram, Facebook, TikTok)",
+  "The domain name you want to use",
+  "Any 1-line customer reviews or testimonials we can quote",
+];
+---
+
+<aside class="bg-yellow-300 text-black border-b-2 border-black">
+  <div class="max-w-7xl mx-auto px-4 py-3 text-sm">
+    <div class="flex flex-col gap-2">
+      <p class="font-black text-base">
+        👋 Hey Polcyn — this is an early preview of your new site!
+      </p>
+      <p>
+        Anywhere you see <span class="font-mono font-bold bg-black text-yellow-300 px-1.5 py-0.5 rounded">[BRACKETED TEXT]</span> is a placeholder waiting on your input. To finish it out, send David:
+      </p>
+      <ul class="list-disc list-inside space-y-0.5 pl-1">
+        {needed.map(item => <li>{item}</li>)}
+      </ul>
+      <p class="font-semibold pt-1">
+        💡 Got ideas, sections you'd like added, or anything you want changed? Just text or call David and he'll plug it in.
+      </p>
+    </div>
+  </div>
+</aside>
+
+<style>
+  /* yellow-300 fallback in case tailwind palette doesn't include it */
+  .bg-yellow-300 { background-color: #FDE047; }
+  .text-yellow-300 { color: #FDE047; }
+</style>
