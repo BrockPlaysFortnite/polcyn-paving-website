@@ -6,6 +6,7 @@ import TrustBadges from '../components/TrustBadges.astro';
 import CTABanner from '../components/CTABanner.astro';
 import { services, companyInfo } from '../data/services';
 import { withBase } from '../lib/links';
+import { icons } from '../lib/icons';
 ---
 
 <BaseLayout
@@ -85,21 +86,21 @@ import { withBase } from '../lib/links';
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="text-center">
           <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+            <svg class="w-7 h-7 text-white" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><Fragment set:html={icons.crew} /></svg>
           </div>
           <h3 class="font-bold text-black text-lg mb-2">One Crew, Full Job</h3>
           <p class="text-slate text-sm">No subcontractor shuffle. We pave it, patch it, seal it, and stripe it ourselves.</p>
         </div>
         <div class="text-center">
           <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+            <svg class="w-7 h-7 text-white" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><Fragment set:html={icons.chat} /></svg>
           </div>
           <h3 class="font-bold text-black text-lg mb-2">Straight Communication</h3>
           <p class="text-slate text-sm">Call or text anytime. We answer the phone and follow through on what we say.</p>
         </div>
         <div class="text-center">
           <div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            <svg class="w-7 h-7 text-white" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><Fragment set:html={icons.seal} /></svg>
           </div>
           <h3 class="font-bold text-black text-lg mb-2">Done Right the First Time</h3>
           <p class="text-slate text-sm">Proper prep, proper materials, proper cure. Asphalt that lasts is asphalt installed right.</p>
